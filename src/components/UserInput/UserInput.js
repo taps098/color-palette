@@ -21,15 +21,18 @@ class UserInput extends React.Component{
   render() {
     return(
       <div className='formContainer'>
+        <form onSubmit={this.props.GetClick}>
+
+
         <Input size='large' className='inputField' type="text"
                onChange = {(e) =>this.props.changedInput(e)}
                placeholder = 'Nature'
                value = {this.props.inputValue}/>
         <button
           // ghost = {true}
+          type="submit"
           className='buttons'
           style={{marginRight: '10px'}}
-          onClick = {this.props.GetClick}
           disabled={this.props.loader}
         >
           {this.props.loader ? 'Loading': 'Get'}
@@ -41,6 +44,7 @@ class UserInput extends React.Component{
         >
           Clear
         </button>
+        </form>
 
       </div>
     );

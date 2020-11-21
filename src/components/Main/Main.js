@@ -35,7 +35,8 @@ class Main extends React.Component{
         inputWord: e.target.value,
       })
   }
-  getClickHandler=()=>{
+  getClickHandler=(e)=>{
+    e.preventDefault();
     this.setState({loader:true},()=>{
       const query = this.state.inputWord;
       if(query !== ''){
