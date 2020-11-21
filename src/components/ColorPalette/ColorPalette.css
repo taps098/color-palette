@@ -1,0 +1,44 @@
+.pallet{
+  height: 100px;
+  width:100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 10px;
+}
+.pallets{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  cursor: copy;
+}
+.pallet.animation::after{
+  position: absolute;
+  /*content: "COPIED";*/
+  /*background: red;*/
+  /*width: 0;*/
+  /*height: 0;*/
+  animation-name: example;
+  animation-duration: 1s;
+  /*border-radius: 50%;*/
+  /*display: flex;*/
+  /*align-items: center;*/
+  /*justify-content: center;*/
+  /*color: white;*/
+}
+
+@keyframes example {
+  from {
+    height: 0;
+    width: 0;
+    opacity: 1;
+  }
+
+  to {
+    height: 100vh;
+    width: 100vh;
+    opacity: 0;
+  }
+}

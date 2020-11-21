@@ -1,0 +1,35 @@
+.buttons{
+  height:40px;
+  width:120px;
+  margin:0;
+  margin-top: 10px;
+  border-radius: 4px;
+  border: 1px solid #16a085;
+  background-color: #1abc9c;
+  box-shadow: 0 6px 6px -6px black;
+  color: white;
+  cursor: pointer;
+}
+
+/*button.buttons:nth-child(2n+1){*/
+/*  margin-right: 10px !important;*/
+/*}*/
+.buttons:hover,.buttons:active, .buttons:focus{
+  background: #16a085;
+  outline:0;
+}
+.buttons:disabled{
+  background: rgba(22, 160, 133, 0.76);
+}
+.inputField{
+  height: 40px;
+  width: 250px;
+  border-radius: 4px;
+  display: block;
+}
+.inputField:focus{
+  border: none;
+}
+.formContainer{
+  justify-content: space-between;
+}

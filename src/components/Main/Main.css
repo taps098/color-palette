@@ -1,0 +1,10 @@
+.userInput{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+.inputField{
+  /*width:200px;*/
+  /*margin: 30px;*/
+}
