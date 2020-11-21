@@ -39,6 +39,7 @@ class UserInput extends React.Component{
         </button>
         <button
           className='buttons'
+          type="button"
           style={{background:'#bdc3c7',borderColor: '#7f8c8d'}}
           onClick = {this.props.clear}
         >

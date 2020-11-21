@@ -65,6 +65,7 @@ class Main extends React.Component{
     this.setState({
       inputWord: '',
       paletteLoading : false,
+      loader: false
     });
   }
 
