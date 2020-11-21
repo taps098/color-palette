@@ -6,6 +6,7 @@ import './Main.css';
 import {connect} from 'react-redux';
 import {show_color, clear_color} from "../../ActionCreator/ActionCreator";
 import { createClient } from 'pexels';
+import {notification} from "antd";
 // import { Popover, Button } from 'antd';
 
 const client = createClient('563492ad6f917000010000011d709952003c4cd891a74e239dcdf07d');
@@ -35,6 +36,15 @@ class Main extends React.Component{
         inputWord: e.target.value,
       })
   }
+
+  showNotification = () => {
+    notification['error']({
+      message: `No Results Found`,
+      description:
+        `Couldn't find any images with your query. Please try something else!`
+    });
+  };
+
   getClickHandler=(e)=>{
     e.preventDefault();
     this.setState({loader:true},()=>{
@@ -42,14 +52,20 @@ class Main extends React.Component{
       if(query !== ''){
         // console.log('get button is clicked');
         client.photos.search({ query, per_page: 1 }).then(photos => {
-          let new_state;
-          let imgUrl = photos.photos[0].src.original;
-          if(imgUrl == this.state.imgUrl){
-            new_state = {loader: false};
-          } else {
-            new_state = {imgUrl: imgUrl}
+          let new_state, imgUrl;
+          try{
+            imgUrl = photos.photos[0].src.original;
+            if(imgUrl == this.state.imgUrl){
+              new_state = {loader: false};
+            } else {
+              new_state = {imgUrl: imgUrl}
+            }
+            this.setState(new_state);
+          } catch {
+            this.showNotification();
+            this.setState({loader: false, inputWord: ''});
           }
-          this.setState(new_state);
+
         });
       }
     })

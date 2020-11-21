@@ -2,6 +2,7 @@ import React from 'react';
 import ColorThief from 'colorthief';
 import './ColorPalette.css';
 import {rgbToHex,invertColor} from "../Helpers/Helpers";
+import {Pallet} from "./Pallet";
 
 class ColorPalette extends React.Component{
   constructor(props) {
@@ -51,13 +52,7 @@ class ColorPalette extends React.Component{
             // console.log('item---: ',item);
             const color = rgbToHex(...item);
             return (
-              <div
-                // className="pallet" style={{ background: color , color: invertColor(color , color)}}
-                className={'pallet ' + (this.state.colorClicked ? 'animation': '' )} style={{ background: color , color: invertColor(color , color)}}
-                onClick = {this.showColors}
-              >
-                {color}
-              </div>
+              <Pallet color={color}/>
             );
           })}
         </div>
